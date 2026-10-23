@@ -2,10 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ROLES, can, normalizeRole, permissionsFor } from '../src/auth/permissions.js';
 
-test('normalizes legacy numeric levels', () => {
-  assert.equal(normalizeRole(1), ROLES.ADMIN);
-  assert.equal(normalizeRole(2), ROLES.USER);
-  assert.equal(normalizeRole('owner'), ROLES.OWNER);
+test('normalizes legacy PHP levels', () => {
+  assert.equal(normalizeRole(1), ROLES.OWNER);
+  assert.equal(normalizeRole(2), ROLES.ADMIN);
+  assert.equal(normalizeRole(3), ROLES.USER);
   assert.equal(normalizeRole('unknown'), null);
 });
 
