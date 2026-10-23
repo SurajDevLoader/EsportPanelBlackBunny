@@ -8,6 +8,10 @@ const app = express();
 const port = Number(process.env.PORT || 4000);
 const allowedOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
 
+if (!Number.isInteger(port) || port < 1 || port > 65535) {
+  throw new Error('PORT must be a valid TCP port');
+}
+
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(cors({ origin: allowedOrigin, credentials: true }));
